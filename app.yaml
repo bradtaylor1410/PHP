@@ -1,1 +1,18 @@
+runtime: php72
+service: backcron
 
+handlers:
+
+- url: .*
+  script: auto
+
+env_variables:
+
+#  SPANNER_DB_ID: 'lotto'
+#  SPANNER_INS_ID: 'lottodb'
+#  google_projectId: 'prod-lotto'
+
+  MYSQL_DSN: mysql:unix_socket=/cloudsql/prod-lotto:asia-northeast1:lotto;dbname=lotto-prod
+  MYSQL_DSN_READ: mysql:unix_socket=/cloudsql/prod-lotto:asia-northeast1:lotto-read;dbname=lotto-prod
+  MYSQL_PASSWORD: 'xxxxxxxxxxxxx'
+  MYSQL_USER: root
